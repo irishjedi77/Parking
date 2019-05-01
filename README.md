@@ -19,10 +19,9 @@ Sketch |<br>
 <br>
 <br>
 APIs |<br>
-<br>*	Parking whiz<br>
-<br>*	Zomato<br>
-<br>*	Google Maps<br>
-<br>
+<br>*	Parking whiz
+<br>*	Zomato
+<br>*	Google Maps
 <br>
 Task Breakdown |<br>
 
