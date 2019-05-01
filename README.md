@@ -1,5 +1,4 @@
 # Group Project #1
-
 Project Title |
 *	Out of The Park
 <br>
@@ -15,16 +14,16 @@ Project Description |<br>
 *	Our app is designed to quickly but efficiently guide baseball fans to parking facilities that have accurate, up to date information in regard to closures, addresses and parking rates
 <br>
 <br>
-Sketch |
-*	*to be attached*
+Sketch |<br>
+*to be attached*
 <br>
 <br>
-APIs |
-*	Parking whiz
-*	Zomato
-*	Google Maps
+APIs |<br>
+<br>*	Parking whiz<br>
+<br>*	Zomato<br>
+<br>*	Google Maps<br>
 <br>
 <br>
-Task Breakdown |
+Task Breakdown |<br>
 
 
