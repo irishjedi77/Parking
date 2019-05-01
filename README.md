@@ -5,10 +5,11 @@ Project Title |
 <br>
 <br>
 Team Members |
-*Ashlie Warren
-*	Christian Mader
-*	Erin Lyden
-*	Isidro Quevedo
+<br>
+* Ashlie Warren<br>
+*	Christian Mader <br>
+*	Erin Lyden <br>
+*	Isidro Quevedo <br>
 <br>
 <br>
 Project Description |
