@@ -13,3 +13,17 @@ Our app is designed to quickly but efficiently guide baseball fans to parking fa
  * Christian Mader 
  * Erin Lyden 
  * Isidro Quevedo
+ 
+ ---
+<strong><h3>Task Breakdown |</h3></strong>
+
+---
+<strong><h3>APIs |</h3></strong>
+  * Parking whiz [ https://www.parkwhiz.com/apikey=572094d12777806d7c3175bd54245f00ba20ba82 ]
+  * Zomato [ https://www.zomato.com/d23536464f4c1f106274e3197e9d49f7 ]
+  * Google Maps [ https://developers.google.com/maps/documentation/api-picker ]
+  
+---
+  
+  
+
