@@ -46,13 +46,14 @@ $("#submit").on("click", function () {
         map.entities.push(pushpinMain);
         //console.log("exit loadMapScenario");
 
-        for (i = 0; i < response.parking_listings.length; i++) {
+        for (i = 0; i < 10; i++) {
 
 
             var lat = response.parking_listings[i].lat;
             var long = response.parking_listings[i].lng;
             var name = response.parking_listings[i].location_name;
 
+            console.log(lat, long, name)
 
             var garage = new Microsoft.Maps.Location(lat, long);
             var pushpin = new Microsoft.Maps.Pushpin(garage, { text: i.toString(), subTitle: name });
