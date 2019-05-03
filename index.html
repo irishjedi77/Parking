@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../Parking/assets/css/style.css">
 
-    <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=Au7Eyy-qxa0g3rvnBOo-xBqOGjEM97d9ZwKSU165hSuEwQPCsQyzh-ieM4tQDdva'></script>
+    <script type='text/javascript'
+        src='https://www.bing.com/api/maps/mapcontrol?key=Au7Eyy-qxa0g3rvnBOo-xBqOGjEM97d9ZwKSU165hSuEwQPCsQyzh-ieM4tQDdva'></script>
 
     
 </head>
@@ -31,56 +32,85 @@
             up to date information in regard to closures, addresses, and parking rates.</p>
     </div>
     <div class="form-group">
-        <label for="retrieve-records">Select Your Team's Stadium:</label>
-     <select class="form-control" id="stadiumVal" placeholder="Number of Records to Receive">
-            <option id="angel-stadium" value="angel-stadium-parking">Angels</option>
-            <option id="comerica-park" value="comerica-park-parking">Tigers</option>
-            <option id="fenway-park" value="fenway-park-parking">Red Sox</option>
-            <option id="texas-rangers" value="texas-rangers-parking">Rangers</option>
-            <option id="guaranteed-rate-field" value="guaranteed-rate-field-parking">White Sox</option>
-            <option id="kauffman-stadium" value="kauffman-stadium-parking">Royals</option>
-            <option id="minute-maid-park" value="minute-maid-park-parking">Astros</option>
-            <option id="oakland-coliseum" value="oakland-coliseum-parking">Athletics</option>
-            <option id="oriole-park-at-camden-yards" value="oriole-park-at-camden-yards-parking">Orioles</option>
-            <option id="progressive-field" value="progressive-field-parking">Indians</option>
-            <option id="rogers-center" value="rogers-center-parking">Blue Jays</option>
-            <option id="safeco-field" value="safeco-field-parking">Mariners</option>
-            <option id="target-field" value="target-field-parking">Twins</option>
-            <option id="tropicana-field" value="tropicana-field-parking">Rays</option>
-            <option id="yankee-stadium" value="yankee-stadium-parking">Yankees</option>
-            <option id="at-t-park" value="at-t-park-parking">Giants</option>
-            <option id="busch-stadium" value="busch-stadium-parking">Cardinals</option>
-            <option id="chase-field" value="chase-field-parking">Diamondbacks</option>
-            <option id="citi-field" value="citi-field-parking">Mets</option>
-            <option id="citizens-bank-park" value="citizens-bank-park-parking">Phillies</option>
-            <option id="coors-field" value="coors-field-parking">Rockies</option>
-            <option id="dodger-stadium" value="dodger-stadium-parking">Dodgers</option>
-            <option id="great-american-ball-park" value="great-american-ball-park-parking">Reds </option>
-            <option id="marlins-park" value="marlins-park-parking">Marlins </option>
-            <option id="miller-park" value="miller-park-parking">Brewers </option>
-            <option id="nationals-park" value="nationals-park-parking">Nationals </option>
-            <option id="petco-park" value="petco-park-parking">Padres </option>
-            <option id="pnc-park" value="pnc-park-parking">Pirates</option>
-            <option id="suntrust-field" value="suntrust-field-parking">Braves </option>
-            <option id="wrigley-field" value="wrigley-field-parking">Cubs</option>
-            </select>
-             <button type="search" id="submit" class="btn btn-primary my-2 mx-2">Submit</button> 
+        <label for="retrieve-records">Select Your Team's Stadium!</label>
+        <select class="form-control" id="stadiumVal" placeholder="Number of Records to Receive">
+            <option id="angel-stadium-of-anaheim-parking" value="angel-stadium-of-anaheim-parking">Angels</option>
+            <option id="comerica-park-parking" value="comerica-park-parking">Tigers</option>
+            <option id="fenway-park-parking" value="fenway-park-parking">Red Sox</option>
+            <option id="texas-rangers-parking" value="texas-rangers-parking">Rangers</option>
+            <option id="guaranteed-rate-field-parking" value="guaranteed-rate-field-parking">White Sox</option>
+            <option id="kauffman-stadium-parking" value="kauffman-stadium-parking">Royals</option>
+            <option id="minute-maid-park-parking" value="minute-maid-park-parking">Astros</option>
+            <option id="oakland-coliseum-parking" value="oakland-coliseum-parking">Athletics</option>
+            <option id="oriole-park-at-camden-yards-parking" value="oriole-park-at-camden-yards-parking">Orioles
+            </option>
+            <option id="progressive-field-parking" value="progressive-field-parking">Indians</option>
+            <option id="rogers-centre-parking" value="rogers-centre-parking">Blue Jays</option>
+            <option id="safeco-field-parking" value="safeco-field-parking">Mariners</option>
+            <option id="target-field-parking" value="target-field-parking">Twins</option>
+            <option id="tropicana-field-parking" value="tropicana-field-parking">Rays</option>
+            <option id="yankee-stadium-parking" value="yankee-stadium-parking">Yankees</option>
+            <option id="oracle-park-parking" value="oracle-park-parking">Giants</option>
+            <option id="busch-stadium-parking" value="busch-stadium-parking">Cardinals</option>
+            <option id="chase-field-parking" value="chase-field-parking">Diamondbacks</option>
+            <option id="citi-field-parking" value="citi-field-parking">Mets</option>
+            <option id="citizens-bank-park-parking" value="citizens-bank-park-parking">Phillies</option>
+            <option id="coors-field-parking" value="coors-field-parking">Rockies</option>
+            <option id="dodger-stadium-parking" value="dodger-stadium-parking">Dodgers</option>
+            <option id="great-american-ball-park-parking" value="great-american-ball-park-parking">Reds </option>
+            <option id="marlins-park-parking" value="marlins-park-parking">Marlins </option>
+            <option id="miller-park-parking" value="miller-park-parking">Brewers </option>
+            <option id="nationals-park-parking" value="nationals-park-parking">Nationals </option>
+            <option id="petco-park-parking" value="petco-park-parking">Padres </option>
+            <option id="pnc-field-parking" value="pnc-field-parking">Pirates</option>
+            <option id="suntrust-field-parking" value="suntrust-field-parking">Braves </option>
+            <option id="wrigley-field-parking" value="wrigley-field-parking">Cubs</option>
+        </select>
+        <button type="search" id="submit" class="btn btn-primary my-2 mx-2">submit</button>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div id="myMap" class="mx-2 my-2 justify-content-end" style="width : 100%"></div>
+            </div>
+            <div class="col-sm-8">
+                <div class="parkinInfo" style=" position : relative">
+                    <table class="table" id="parking-info-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Parking Names</th>
+                                <th>Price</th>
+                                <th>Address</th>
+                                <th>City</th>
+                                <th>State</th>
+                            </tr>
+                        </thead>
+                        <tbody id="parking-info-body">
+                            <!--  <td>Center garage</td> -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+       
         </div>
-        <div id="myMap" class="mx-2 my-2 justify-content-end"></div>
+    </div>
 
     <div class="bgimg-2"> </div>
 
-    
+
     <div class="test"></div>
 
     <div style="position:relative;">
         <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
             <!-- <p>We can add our input form here.</p> -->
-            <form><div class="form-group"></div></form>
-            <!-- <h5>Input Team Stadium</h5> -->
-    
+            <form>
+                <div class="form-group"></div>
+            </form>
+            <!--   <h5>Input Team Stadium</h5> -->
 
-    <div class="bgimg-3"></div>
 
     <div style="position:relative;">
             <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;"></div>
@@ -103,12 +133,11 @@
             <div class="first">
             <span class="first">Enjoy the game!</span>
             </div>
-          </div>
 
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="../Parking/assets/javascript/app.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script type="text/javascript" src="../Parking/assets/javascript/app.js"></script>
 </body>
 
 </html>
