@@ -16,8 +16,8 @@ var foodDiv;
 var stadiumFood;
 var latitude;
 var longitude;
-var stadiumLat; 
-var stadiumLng; 
+var stadiumLat;
+var stadiumLng;
 
 
 //functinon to submit park name, and show available parking garages on map
@@ -34,8 +34,8 @@ $("#submit").on("click", function () {
         method: "GET"
     }).then(function (response) {
         //console.log(response.parking_listings[0].address);
-        stadiumLat = response.lat; 
-        stadiumLng = response.lng; 
+        stadiumLat = response.lat;
+        stadiumLng = response.lng;
 
         var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
             center: new Microsoft.Maps.Location(response.lat, response.lng)
@@ -47,7 +47,7 @@ $("#submit").on("click", function () {
         //console.log("exit loadMapScenario");
 
         for (i = 0; i < response.parking_listings.length; i++) {
-            
+
 
             var lat = response.parking_listings[i].lat;
             var long = response.parking_listings[i].lng;
@@ -64,7 +64,7 @@ $("#submit").on("click", function () {
             //var stadiumFood = $("#stadiumVal option:selected").attr("id");
             var zomatoQuery = 'https://developers.zomato.com/api/v2.1/search?count=5&lat=' + stadiumLat + '&lon=' + stadiumLng + '&apikey=809cacce2b45b91bf605edacedac021c';
             console.log(zomatoQuery)
-        
+
 
             $.ajax({
                 url: zomatoQuery,
@@ -72,19 +72,35 @@ $("#submit").on("click", function () {
             }).then(function (response) {
                 console.log("response array" + response);
 
-            for (i = 0; i < response.restaurants.length; i++) {
-                var name = response.restaurants[i].restaurant.name;
-                var location = response.restaurants[i].restaurant.location.address;
-                console.log(name, location);
-            }
+                for (i = 0; i < response.restaurants.length; i++) {
+                    var name = response.restaurants[i].restaurant.name;
+                    var location = response.restaurants[i].restaurant.location.address;
+                    console.log(name, location);
+
+                    var imgURL =response.restaurants[i].restaurant.thumb;
+
+                    var newRow = $("<tr>").append(
+                        $("<img>").attr("src", imgURL),
+                        $("<td>").text(name),
+                        $("<td>").text(location),
                 
-                //$("#foodOptions").text("Restaurants: " + name + location);
-                
+                    );
+
+                    $("#foodOptions").show();
+                    // Append the new row to the table
+                    $("#suggestions").append(newRow);
+
+
+
+                }
+               
+
+
             });
 
-            
+
             //console.log("" + stadiumFood);
-            
+
         };
         foodInfo();
 
