@@ -21,7 +21,7 @@
 
     <div class="bgimg-1">
         <div class=first>
-        <span class="first"><h1>Out of the Park</h1><h4>Stadium parking made easy.</h4></span>
+            <span class="first"><h1>OUT OF THE PARK</h1><h4>Stadium | Parking | Made | Easy</h4></span>
     </div>
     </div>
 
@@ -32,7 +32,7 @@
     </div>
     <div class="form-group">
         <label for="retrieve-records">Select Your Team's Stadium!</label>
-        <select class="form-control" id="stadiumVal" placeholder="Number of Records to Receive">
+     <select class="form-control" id="stadiumVal" placeholder="Number of Records to Receive">
             <option id="angel-stadium-parking" value="angel-stadium-parking">Angels</option>
             <option id="comerica-park-parking" value="comerica-park-parking">Tigers</option>
             <option id="fenway-park-parking" value="fenway-park-parking">Red Sox</option>
@@ -83,10 +83,21 @@
     <div class="bgimg-3"></div>
 
     <div style="position:relative;">
-            <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
-            <p>We can add our food suggestions from Zomato here.</p>
+            <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;"></div>
+            <p>Plan your day.</p>
+            <div style="display:none" id="foodOptions">
+                    <table class="table" id="suggestions">
+                            <thead>
+        
+                                <tr>
+                                    <th><img id="thumbnail"></th>
+                                    <th>Restaurant Name</th>
+                                    <th>Address</th>
+                                </tr>
+                            </thead>
+                        </table>
             </div>
-          </div>
+    </div>
           
           <div class="bgimg-1">
             <div class="first">
