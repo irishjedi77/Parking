@@ -103,6 +103,7 @@ $("#submit").on("click", function () {
             //console.log("" + stadiumFood);
 
         };
+        
         foodInfo();
 
 
