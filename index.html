@@ -11,6 +11,8 @@
     <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../Parking/assets/css/style.css">
 
+    <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=Au7Eyy-qxa0g3rvnBOo-xBqOGjEM97d9ZwKSU165hSuEwQPCsQyzh-ieM4tQDdva'></script>
+
     <title>Out of the Park</title>
 </head>
 
@@ -27,20 +29,9 @@
         <p>Our app is designed to quickly, but efficiently guide baseball fans to parking facilities that have accurate,
             up to date information in regard to closures, addresses, and parking rates.</p>
     </div>
-
-    <div class="bgimg-2"> </div>
-
-    //test
-    <div class="test"></div>
-
-    <div style="position:relative;">
-        <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
-            <!-- <p>We can add our input form here.</p> -->
-            <form><div class="form-group"></div></form>
-            <!-- <h5>Input Team Stadium</h5> -->
     <div class="form-group">
         <label for="retrieve-records">Select Your Team's Stadium!</label>
-        <select class="form-control" id="numberRecords" placeholder="Number of Records to Receive">
+        <select class="form-control" id="stadiumVal" placeholder="Number of Records to Receive">
             <option id="angel-stadium-of-anaheim-parking" value="angel-stadium-of-anaheim-parking">Angels</option>
             <option id="comerica-park-parking" value="comerica-park-parking">Tigers</option>
             <option id="fenway-park-parking" value="fenway-park-parking">Red Sox</option>
@@ -72,10 +63,21 @@
             <option id="suntrust-field-parking" value="suntrust-field-parking">Braves </option>
             <option id="wrigley-field-parking" value="wrigley-field-parking">Cubs</option>
             </select>
-            <!-- <button type="search" id="submit" class="btn btn-primary">submit</button> -->
+             <button type="search" id="submit" class="btn btn-primary my-2 mx-2">submit</button> 
         </div>
-    
+        <div id="myMap" class="mx-2 my-2 justify-content-end"></div>
 
+    <div class="bgimg-2"> </div>
+
+    
+    <div class="test"></div>
+
+    <div style="position:relative;">
+        <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+            <!-- <p>We can add our input form here.</p> -->
+            <form><div class="form-group"></div></form>
+            <!-- <h5>Input Team Stadium</h5> -->
+    
 
     <div class="bgimg-3"></div>
 
