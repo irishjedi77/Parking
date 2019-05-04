@@ -12,6 +12,8 @@ $(document).ready(function () {
 //variables 
 var address;
 var map;
+var stadiumQ = 0;
+
 var foodDiv;
 var stadiumFood;
 var latitude;
@@ -24,6 +26,7 @@ var stadiumLng;
 $("#submit").on("click", function () {
 
     event.preventDefault();
+    $("#parking-info-table tbody").empty();
 
     var stadium = $("#stadiumVal").val();
     //console.log(stadium);
@@ -34,8 +37,6 @@ $("#submit").on("click", function () {
         method: "GET"
     }).then(function (response) {
         //console.log(response.parking_listings[0].address);
-        stadiumLat = response.lat;
-        stadiumLng = response.lng;
 
         var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
             center: new Microsoft.Maps.Location(response.lat, response.lng)
@@ -53,65 +54,81 @@ $("#submit").on("click", function () {
             var long = response.parking_listings[i].lng;
             var name = response.parking_listings[i].location_name;
 
-            console.log(lat, long, name)
+            var price = response.parking_listings[i].price_formatted;
+            var address = response.parking_listings[i].address;
+            var city = response.parking_listings[i].city;
+            var state = response.parking_listings[i].state;
+
 
             var garage = new Microsoft.Maps.Location(lat, long);
             var pushpin = new Microsoft.Maps.Pushpin(garage, { text: i.toString(), subTitle: name });
             map.entities.push(pushpin);
-        };
-        function foodInfo() {
-            //console.log(stadiumLat, stadiumLng)
 
-            //var stadiumFood = $("#stadiumVal option:selected").attr("id");
-            var zomatoQuery = 'https://developers.zomato.com/api/v2.1/search?count=5&lat=' + stadiumLat + '&lon=' + stadiumLng + '&apikey=809cacce2b45b91bf605edacedac021c';
-            console.log(zomatoQuery)
+            // Display the parking info
 
+            var newRow = $("<tr>").append(
+                $("<td>").text(i + 1),
+                $("<td>").text(name),
+                $("<td>").text(price),
+                $("<td>").text(address),
+                $("<td>").text(city),
+                $("<td>").text(state),
+            );
 
-            $.ajax({
-                url: zomatoQuery,
-                method: "GET"
-            }).then(function (response) {
-                console.log("response array" + response);
+            // Append the new row to the table
+            $("#parking-info-table tbody").append(newRow);
 
-                for (i = 0; i < response.restaurants.length; i++) {
-                    var name = response.restaurants[i].restaurant.name;
-                    var location = response.restaurants[i].restaurant.location.address;
-                    console.log(name, location);
-
-                    var imgURL =response.restaurants[i].restaurant.thumb;
-
-                    var newRow = $("<tr>").append(
-                        $("<img>").attr("src", imgURL),
-                        $("<td>").text(name),
-                        $("<td>").text(location),
+            function foodInfo() {
+            
+                stadiumLat = response.lat;
+                stadiumLng = response.lng;
+        
+        
                 
-                    );
-
-                    $("#foodOptions").show();
-                    // Append the new row to the table
-                    $("#suggestions").append(newRow);
-
-
-
-                }
-               
-
-
-            });
-
-
-            //console.log("" + stadiumFood);
+                var zomatoQuery = 'https://developers.zomato.com/api/v2.1/search?count=5&lat=' + stadiumLat + '&lon=' + stadiumLng + '&apikey=809cacce2b45b91bf605edacedac021c';
+                console.log(zomatoQuery)
+        
+        
+                $.ajax({
+                    url: zomatoQuery,
+                    method: "GET"
+                }).then(function (response) {
+                    console.log("response array" + response);
+        
+                    for (i = 0; i < response.restaurants.length; i++) {
+                        var name = response.restaurants[i].restaurant.name;
+                        var location = response.restaurants[i].restaurant.location.address;
+                        console.log(name, location);
+        
+                        var imgURL = response.restaurants[i].restaurant.thumb;
+        
+                        var newRow = $("<tr>").append(
+                            $("<img>").attr("src", imgURL),
+                            $("<td>").text(name),
+                            $("<td>").text(location),
+        
+                        );
+        
+                        $("#foodOptions").show();
+                        // Append the new row to the table
+                        $("#suggestions").append(newRow);
+        
+        
+                    }
+        
+        
+                });
+        
+    
+        
+            };
+            
+            foodInfo();
 
         };
         
-        foodInfo();
-
-
-
-
-
-
-
     });
 
+
 });
+
