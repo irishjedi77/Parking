@@ -37,7 +37,18 @@ $("#submit").on("click", function () {
 
     $.ajax({
         url: bingQ,
-        method: "GET"
+        method: "GET",
+
+        beforeSend: function () {
+            $("#myMap").hide();
+            $("#load").show();
+        },
+
+        complete: function () {
+            $("#load").hide();
+            $("#myMap").show();
+        }
+
     }).then(function (response) {
         //console.log(response.parking_listings[0].address);
         stadiumLat = response.lat;

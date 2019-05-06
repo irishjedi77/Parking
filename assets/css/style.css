@@ -57,7 +57,7 @@ h3 {
   font: 20px "Lato", sans-serif;
   color: #111;
 }
-#myMap {
+#myMap, #load {
     
   width: 500px;
   height: 500px;
