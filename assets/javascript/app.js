@@ -19,13 +19,17 @@ var stadiumFood;
 var latitude;
 var longitude;
 var stadiumLat;
-var stadiumLng ;
+var stadiumLng;
+
+$(".table").hide()
 
 
 //functinon to submit park name, and show available parking garages on map
 $("#submit").on("click", function () {
 
     event.preventDefault();
+    $(".home-address").empty();
+    $("#directionsItinerary").empty();
     $("#parking-info-table tbody").empty();
 
     var stadium = $("#stadiumVal").val();
@@ -39,11 +43,11 @@ $("#submit").on("click", function () {
         stadiumLat = response.lat;
         stadiumLng = response.lng;
         console.log(stadiumLng)
-        console.log(stadiumLat) 
+        console.log(stadiumLat)
         $("#suggestions").empty();
         foodInfo(stadiumLat, stadiumLng);
-        var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
-            center: new Microsoft.Maps.Location(response.lat, response.lng)
+         map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
+            center: new Microsoft.Maps.Location(response.lat, response.lng), zoom: 10
         });
 
         var stadiumMain = new Microsoft.Maps.Location(response.lat, response.lng);
@@ -77,9 +81,11 @@ $("#submit").on("click", function () {
                 $("<td>").text(address),
                 $("<td>").text(city),
                 $("<td>").text(state),
+                $("<td>").html(`<button type="button" class="submit-address btn btn-primary" data-lat="${lat}" data-long="${long}">Get Directions</buttton>`)
             );
 
             // Append the new row to the table
+            $(".table").show();
             $("#parking-info-table tbody").append(newRow);
 
 
@@ -91,12 +97,29 @@ $("#submit").on("click", function () {
         /* console.log(response); */
     });
 
+    //display parking input
+    var addressRow = $("<h3>").text("Starting Address").append(
+
+        $("<input>").attr({
+            type: "text",
+            placeholder: "Address",
+            name: "address",
+            id: "addressInput"
+
+        })
+
+    );
+
+    $(".home-address").append(addressRow);
+
+
+
     function foodInfo(lat, long) {
         //console.log(stadiumLat, stadiumLng)
 
         //var stadiumFood = $("#stadiumVal option:selected").attr("id");
         var zomatoQuery = 'https://developers.zomato.com/api/v2.1/search?count=5&lat=' + lat + '&lon=' + long + '&apikey=809cacce2b45b91bf605edacedac021c';
-    
+
 
 
         $.ajax({
@@ -106,7 +129,7 @@ $("#submit").on("click", function () {
             console.log("response array" + response);
 
             for (i = 0; i < response.restaurants.length; i++) {
-               
+
                 var name = response.restaurants[i].restaurant.name;
                 var location = response.restaurants[i].restaurant.location.address;
                 console.log(name, location);
@@ -137,12 +160,47 @@ $("#submit").on("click", function () {
         //console.log("" + stadiumFood);
         return
     };
-    
-    
-    
-    
-    
-    
-    
-    
+
+
 });
+
+
+
+//direction functionality 
+$(document).on("click", ".submit-address", function (e) {
+    e.preventDefault();
+
+    var data = $(this).data();
+    console.log(data.long, data.lat);
+
+    var homeAddress = $("#addressInput").val().trim();
+
+    console.log(homeAddress);
+
+    function GetMap() {
+
+
+        //Load the directions module.
+        Microsoft.Maps.loadModule('Microsoft.Maps.Directions', function () {
+
+
+            //Create an instance of the directions manager.
+            directionsManager = new Microsoft.Maps.Directions.DirectionsManager(map);
+
+            //Create waypoints to route between.
+            var startingWaypoint = new Microsoft.Maps.Directions.Waypoint({ address: homeAddress });
+            directionsManager.addWaypoint(startingWaypoint);
+
+            var endWaypoint = new Microsoft.Maps.Directions.Waypoint({ address: 'end', location: new Microsoft.Maps.Location(data.lat, data.long) });
+            directionsManager.addWaypoint(endWaypoint);
+
+            //Specify the element in which the itinerary will be rendered.
+            directionsManager.setRenderOptions({ itineraryContainer: '#directionsItinerary' });
+
+            //Calculate directions.
+            directionsManager.calculateDirections();
+        });
+    };
+    GetMap();
+
+}); 

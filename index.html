@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>OuT oF The Park</title>
+    <title>OUT OF THE PARK</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
@@ -76,67 +76,69 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-4">
-                <div id="myMap" class="mx-2 my-2 justify-content-end" style="width : 100%"></div>
+            <div class="col-sm-6">
+                <div id='directionsItinerary'></div>
             </div>
-            <div class="col-sm-8">
-                <div class="parkinInfo" style=" position : relative">
-                    <table class="table" id="parking-info-table">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Parking Names</th>
-                                <th>Price</th>
-                                <th>Address</th>
-                                <th>City</th>
-                                <th>State</th>
-                            </tr>
-                        </thead>
-                        <tbody id="parking-info-body">
-                            <!--  <td>Center garage</td> -->
-                        </tbody>
-                    </table>
+            <div class="col-sm-6">
+                <div id="myMap" class="mx-2 my-2" style="width : 100%"></div>
+                <div class="row">
+
+                    <div class="col-sm-12">
+                        <div class="parkinInfo align-self-start" style=" position : relative">
+                            <form>
+                                <div class="home-address"></div>
+                                <table class="table" id="parking-info-table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Parking Names</th>
+                                            <th>Price</th>
+                                            <th>Address</th>
+                                            <th>City</th>
+                                            <th>State</th>
+                                            <th>Directions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="parking-info-body">
+                                        <!--  <td>Center garage</td> -->
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
         </div>
-    </div>
+    </div> 
 
     <div class="bgimg-2"> </div>
 
-
-    <div class="test"></div>
-
     <div style="position:relative;">
         <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
-            <!-- <p>We can add our input form here.</p> -->
+                
+                <div style="display:none" id="foodOptions">
+                    <p id="zomato">Plan your day with nearby restaurant suggestions from Zomato.</p>
+                    <table class="table" id="suggestions">
+                        <thead>
+    
+                            <tr>
+                                <th><img id="thumbnail"></th>
+                                <th>Restaurant Name</th>
+                                <th>Address</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
             <form>
                 <div class="form-group"></div>
             </form>
             <!-- <h5>Input Team Stadium</h5> -->
         </div>
-
-        <div class="bgimg-3"></div>
-            <div style="display:none" id="foodOptions">
-                <p id="zomato">Plan your day with nearby restaurant suggestions from Zomato.</p>
-                <table class="table" id="suggestions">
-                    <thead>
-
-                        <tr>
-                            <th><img id="thumbnail"></th>
-                            <th>Restaurant Name</th>
-                            <th>Address</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-        </div>
-
-        <div class="bgimg-1">
-            <div class="first">
-                <span class="first">Enjoy the game!</span>
-            </div>
-        </div>
+    <div class="bgimg-3"><span class="enjoy">Enjoy the game!</span></div>
+    <footer>Team I-ACE | Copyright 2019</footer>
 
 
 
