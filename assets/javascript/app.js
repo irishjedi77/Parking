@@ -19,7 +19,7 @@ var stadiumFood;
 var latitude;
 var longitude;
 var stadiumLat;
-var stadiumLng;
+var stadiumLng ;
 
 
 //functinon to submit park name, and show available parking garages on map
@@ -29,7 +29,6 @@ $("#submit").on("click", function () {
     $("#parking-info-table tbody").empty();
 
     var stadium = $("#stadiumVal").val();
-    //console.log(stadium);
     var bingQ = "http://api.parkwhiz.com/" + stadium + "/?page=2&no_event_301=1&key=f02ac3a6bef919dd3a80a73e964af9e9d3d2991a";
 
     $.ajax({
@@ -39,7 +38,10 @@ $("#submit").on("click", function () {
         //console.log(response.parking_listings[0].address);
         stadiumLat = response.lat;
         stadiumLng = response.lng;
-
+        console.log(stadiumLng)
+        console.log(stadiumLat) 
+        $("#suggestions").empty();
+        foodInfo(stadiumLat, stadiumLng);
         var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
             center: new Microsoft.Maps.Location(response.lat, response.lng)
         });
@@ -89,12 +91,12 @@ $("#submit").on("click", function () {
         /* console.log(response); */
     });
 
-    function foodInfo() {
+    function foodInfo(lat, long) {
         //console.log(stadiumLat, stadiumLng)
 
         //var stadiumFood = $("#stadiumVal option:selected").attr("id");
-        var zomatoQuery = 'https://developers.zomato.com/api/v2.1/search?count=5&lat=' + stadiumLat + '&lon=' + stadiumLng + '&apikey=809cacce2b45b91bf605edacedac021c';
-        console.log(zomatoQuery)
+        var zomatoQuery = 'https://developers.zomato.com/api/v2.1/search?count=5&lat=' + lat + '&lon=' + long + '&apikey=809cacce2b45b91bf605edacedac021c';
+    
 
 
         $.ajax({
@@ -104,6 +106,7 @@ $("#submit").on("click", function () {
             console.log("response array" + response);
 
             for (i = 0; i < response.restaurants.length; i++) {
+               
                 var name = response.restaurants[i].restaurant.name;
                 var location = response.restaurants[i].restaurant.location.address;
                 console.log(name, location);
@@ -114,6 +117,7 @@ $("#submit").on("click", function () {
                     $("<img>").attr("src", imgURL),
                     $("<td>").text(name),
                     $("<td>").text(location),
+                    $("<tr>").attr("class", "newRow")
 
                 );
 
@@ -131,15 +135,14 @@ $("#submit").on("click", function () {
 
 
         //console.log("" + stadiumFood);
-
+        return
     };
-    foodInfo();
-
-
-
-
-
-
-
+    
+    
+    
+    
+    
+    
+    
+    
 });
-
