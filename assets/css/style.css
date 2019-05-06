@@ -42,7 +42,7 @@ body, html {
     position: absolute;
     left: 37%;
     top: 50%;
-    width: 25%;
+    width: 30%;
     text-align: center;
     background-color: #111;
     color: #fff;
@@ -53,6 +53,7 @@ body, html {
 .first span.first {
   background-color: #111;
   color: #fff;
+  width: 100%;
   padding: 18px;
   font-size: 25px;
   letter-spacing: 10px;
@@ -63,10 +64,11 @@ h1 {
   font-size: 50pt;
 }
 
-h3 {
+h2 {
   letter-spacing: 5px;
+  margin-bottom: 15pt;
   text-transform: uppercase;
-  font: 20px "Lato", sans-serif;
+  font:"Lato", sans-serif;
   color: #111;
 }
 #myMap {
@@ -83,6 +85,24 @@ footer {
 
 #zomato {
   text-align: center;
+  font-size: 25pt;
+}
+
+.form-group {
+  padding: 15pt;
+  font-style: bold;
+  font-size: large;
+}
+
+#main {
+  margin: auto;
+  width: 100%;
+  font-size: 15pt;
+}
+
+#thumbnail {
+  margin-bottom: 3pt;
+  margin-bottom: 5pt;
 }
 
 /* Turn off parallax scrolling for tablets and phones */

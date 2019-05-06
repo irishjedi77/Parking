@@ -30,13 +30,18 @@
         </div>
     </div>
 
-    <div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
-        <h3 style="text-align:center;">Out of the Park</h3>
-        <p>Our app is designed to quickly, but efficiently guide baseball fans to parking facilities that have accurate,
-            up to date information in regard to closures, addresses, and parking rates.</p>
+    <div id="main" style="color: #777;background-color:white;text-align:center;padding:20px 20px;text-align: center;">
+        <h2 style="text-align:center;">Out of the Park</h2>
+        <p>Choose your favorite team from the drop-down menu below to get started.</p>
+
+        <p>Our app will show available parking near your team’s stadium and allow you to generate directions to the
+            parking structure from any address.</p>
+
+        <p>Finally, we provide suggestions for nearby restaurants to help you plan your day at the park.
+        </p>
     </div>
     <div class="form-group">
-        <label for="retrieve-records">Select Your Team's Stadium!</label>
+        <label for="retrieve-records">Select Your Team's Stadium:</label>
         <select class="form-control" id="stadiumVal" placeholder="Number of Records to Receive">
             <option id="angel-stadium-of-anaheim" value="angel-stadium-of-anaheim-parking">Angels</option>
             <option id="comerica-park" value="comerica-park-parking">Tigers</option>
@@ -111,39 +116,40 @@
             </div>
 
         </div>
-    </div> 
+    </div>
 
     <div class="bgimg-2"> </div>
 
     <div style="position:relative;">
         <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
-                
-                <div style="display:none" id="foodOptions">
-                    <p id="zomato">Plan your day with nearby restaurant suggestions from Zomato.</p>
-                    <table class="table" id="suggestions">
-                        <thead>
-    
-                            <tr>
-                                <th><img id="thumbnail"></th>
-                                <th>Restaurant Name</th>
-                                <th>Address</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
+
+            <div style="display:none" id="foodOptions">
+                <p id="zomato">Plan your day with nearby restaurant suggestions from Zomato. <i
+                        class="fas fa-hotdog"></i></p>
+                <table class="table" id="suggestions">
+                    <thead>
+
+                        <tr>
+                            <th><img id="thumbnail"></th>
+                            <th>Restaurant Name</th>
+                            <th>Address</th>
+                        </tr>
+                    </thead>
+                </table>
             </div>
-            <form>
-                <div class="form-group"></div>
-            </form>
-            <!-- <h5>Input Team Stadium</h5> -->
         </div>
-    <div class="bgimg-3"><span class="enjoy">Enjoy the game!</span></div>
+        <form>
+            <div class="form-group"></div>
+        </form>
+        <!-- <h5>Input Team Stadium</h5> -->
+    </div>
+    <div class="bgimg-3"><span class="enjoy"> Enjoy the game <i class="fas fa-baseball-ball"></i></span></div>
     <footer>Team I-ACE | Copyright 2019</footer>
 
 
 
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-            <script type="text/javascript" src="../Parking/assets/javascript/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../Parking/assets/javascript/app.js"></script>
 
 
 </body>
