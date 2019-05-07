@@ -94,7 +94,7 @@ $("#submit").on("click", function () {
                 $("<td>").text(address),
                 $("<td>").text(city),
                 $("<td>").text(state),
-                $("<td>").html(`<button type="button" class="submit-address btn btn-primary" data-lat="${lat}" data-long="${long}">Get Directions</buttton>`)
+                $("<td>").html(`<button type="button" class="submit-address btn btn-secondary" data-lat="${lat}" data-long="${long}">Get Directions</buttton>`)
             );
 
             // Append the new row to the table
@@ -115,7 +115,7 @@ $("#submit").on("click", function () {
 
         $("<input>").attr({
             type: "text",
-            placeholder: "Address",
+            placeholder: "Starting Address",
             name: "address",
             id: "addressInput", 
             class: "text-muted"
