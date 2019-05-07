@@ -112,7 +112,17 @@ footer {
 }
 
 a{
-  color: orangered;
+  color: #CD5C5C
+
+}
+a:hover { 
+  color:rgb(221, 221, 221); 
+}
+
+.btn {
+  background-color: #CD5C5C
+  !important;
+  
 }
 
 .modal {

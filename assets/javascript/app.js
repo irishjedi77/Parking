@@ -20,6 +20,7 @@ var latitude;
 var longitude;
 var stadiumLat;
 var stadiumLng;
+var count = 0; 
 
 $(".table").hide()
 
@@ -93,7 +94,7 @@ $("#submit").on("click", function () {
         map.entities.push(pushpinMain);
         //console.log("exit loadMapScenario");
 
-        for (i = 0; i < 10; i++) {
+        for (var i = 0; i < 10; i++) {
 
 
             var lat = response.parking_listings[i].lat;
@@ -107,7 +108,7 @@ $("#submit").on("click", function () {
 
 
             var garage = new Microsoft.Maps.Location(lat, long);
-            var pushpin = new Microsoft.Maps.Pushpin(garage, { text: i.toString(), subTitle: name });
+            var pushpin = new Microsoft.Maps.Pushpin(garage, { text: (i+1).toString(), subTitle: name });
             map.entities.push(pushpin);
 
             // Display the parking info
@@ -119,7 +120,7 @@ $("#submit").on("click", function () {
                 $("<td>").text(address),
                 $("<td>").text(city),
                 $("<td>").text(state),
-                $("<td>").html(`<button type="button" class="submit-address btn btn-primary" data-lat="${lat}" data-long="${long}">Get Directions</buttton>`)
+                $("<td>").html(`<button type="button" class="submit-address btn btn-secondary" data-lat="${lat}" data-long="${long}">Get Directions</buttton>`)
             );
 
             // Append the new row to the table
@@ -140,7 +141,7 @@ $("#submit").on("click", function () {
 
         $("<input>").attr({
             type: "text",
-            placeholder: "Address",
+            placeholder: "Starting Address",
             name: "address",
             id: "addressInput",
             class: "text-muted"
@@ -210,6 +211,7 @@ $("#submit").on("click", function () {
 //direction functionality 
 $(document).on("click", ".submit-address", function (e) {
     e.preventDefault();
+    
 
     var data = $(this).data();
     console.log(data.long, data.lat);
@@ -218,15 +220,24 @@ $(document).on("click", ".submit-address", function (e) {
 
     console.log(homeAddress);
 
+   
+
     function GetMap() {
 
 
         //Load the directions module.
         Microsoft.Maps.loadModule('Microsoft.Maps.Directions', function () {
 
-
+            
+            
             //Create an instance of the directions manager.
             directionsManager = new Microsoft.Maps.Directions.DirectionsManager(map);
+
+
+            if (count = 1) {
+
+                map.layers.clear(); 
+            }; 
 
             //Create waypoints to route between.
             var startingWaypoint = new Microsoft.Maps.Directions.Waypoint({ address: homeAddress });
@@ -240,6 +251,10 @@ $(document).on("click", ".submit-address", function (e) {
 
             //Calculate directions.
             directionsManager.calculateDirections();
+
+            count=1; 
+
+
         });
     };
     GetMap();
