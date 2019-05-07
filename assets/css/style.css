@@ -40,7 +40,7 @@ body, html {
 
 .enjoy {
     position: absolute;
-    left: 37%;
+    left: 35%;
     top: 50%;
     width: 30%;
     text-align: center;
@@ -71,7 +71,7 @@ h2 {
   font:"Lato", sans-serif;
   color: #111;
 }
-#myMap {
+#myMap, #load {
     
   width: 500px;
   height: 500px;
@@ -95,16 +95,26 @@ footer {
 }
 
 #main {
-  margin: auto;
   height:auto;
   width: 100%;
-  font-size: 15pt;
+  font-size: 12pt;
 }
 
 #thumbnail {
   margin-bottom: 3pt;
   margin-bottom: 5pt;
 }
+
+#addressInput {
+  text-align: center;
+  font-family: "Lato", sans-serif;
+  
+}
+
+a{
+  color: orangered;
+}
+
 
 /* Turn off parallax scrolling for tablets and phones */
 @media only screen and (max-device-width: 1024px) {

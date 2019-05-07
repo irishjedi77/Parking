@@ -31,7 +31,7 @@
     </div>
 
     <div id="main" style="color: #777;background-color:white;text-align:center;padding:20px 20px;text-align: center;">
-        <h2 style="text-align:center;">Out of the Park</h2>
+        <h2 style="text-align:center;">Find Your Spot</h2>
         <p>Choose your favorite team from the drop-down menu below to get started.</p>
 
         <p>Our app will show available parking near your team’s stadium and allow you to generate directions to the
@@ -79,11 +79,16 @@
     </div>
 
 
-    <div class="container">
+    <div class="container"style="display:none" id="maps">
         <div class="row">
             <div class="col-sm-6">
                 <div id='directionsItinerary'></div>
             </div>
+
+            <div class="loader" style="margin-top: 10px; display: none" id="load">
+                <img src="../Parking/assets/images/ajax-loader.gif">
+            </div>
+
             <div class="col-sm-6">
                 <div id="myMap" class="mx-2 my-2" style="width : 100%"></div>
                 <div class="row">
@@ -121,9 +126,8 @@
     <div class="bgimg-2"> </div>
 
     <div style="position:relative;">
-        <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+        <div id="foodOptions" style="display: none;color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px; height:auto">
 
-            <div style="display:none" id="foodOptions">
                 <p id="zomato">Plan your day with nearby restaurant suggestions from Zomato. <i
                         class="fas fa-hotdog"></i></p>
                 <table class="table" id="suggestions">
