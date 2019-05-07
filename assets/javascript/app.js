@@ -81,7 +81,7 @@ $("#submit").on("click", function () {
 
 
             var garage = new Microsoft.Maps.Location(lat, long);
-            var pushpin = new Microsoft.Maps.Pushpin(garage, { text: i.toString(), subTitle: name });
+            var pushpin = new Microsoft.Maps.Pushpin(garage, { text: (i+1).toString(), subTitle: name });
             map.entities.push(pushpin);
 
             // Display the parking info
