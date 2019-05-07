@@ -31,6 +31,7 @@ $("#submit").on("click", function () {
     $(".home-address").empty();
     $("#directionsItinerary").empty();
     $("#parking-info-table tbody").empty();
+    $("#maps").show();
 
     var stadium = $("#stadiumVal").val();
     var bingQ = "http://api.parkwhiz.com/" + stadium + "/?page=2&no_event_301=1&key=f02ac3a6bef919dd3a80a73e964af9e9d3d2991a";
@@ -109,13 +110,14 @@ $("#submit").on("click", function () {
     });
 
     //display parking input
-    var addressRow = $("<h3>").text("Starting Address").append(
+    var addressRow = $("<h3>").text("Starting Address: ").append(
 
         $("<input>").attr({
             type: "text",
             placeholder: "Address",
             name: "address",
-            id: "addressInput"
+            id: "addressInput", 
+            class: "text-muted"
 
         })
 
@@ -143,13 +145,15 @@ $("#submit").on("click", function () {
 
                 var name = response.restaurants[i].restaurant.name;
                 var location = response.restaurants[i].restaurant.location.address;
+                var foodURL = response.restaurants[i].restaurant.url;
+                console.log(foodURL);
                 console.log(name, location);
 
                 var imgURL = response.restaurants[i].restaurant.thumb;
 
                 var newRow = $("<tr>").append(
                     $("<img>").attr("src", imgURL),
-                    $("<td>").text(name),
+                    $("<td>").html(`<a href='${response.restaurants[i].restaurant.url}' target='blank'>${name}</a>`),
                     $("<td>").text(location),
                     $("<tr>").attr("class", "newRow")
 

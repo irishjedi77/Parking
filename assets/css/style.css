@@ -38,9 +38,22 @@ body, html {
   color: #000;
 }
 
+.enjoy {
+    position: absolute;
+    left: 35%;
+    top: 50%;
+    width: 30%;
+    text-align: center;
+    background-color: #111;
+    color: #fff;
+    font: "Lato", sans-serif;
+    font-size: 30pt;
+}
+
 .first span.first {
   background-color: #111;
   color: #fff;
+  width: 100%;
   padding: 18px;
   font-size: 25px;
   letter-spacing: 10px;
@@ -51,10 +64,11 @@ h1 {
   font-size: 50pt;
 }
 
-h3 {
+h2 {
   letter-spacing: 5px;
+  margin-bottom: 15pt;
   text-transform: uppercase;
-  font: 20px "Lato", sans-serif;
+  font:"Lato", sans-serif;
   color: #111;
 }
 #myMap, #load {
@@ -62,6 +76,45 @@ h3 {
   width: 500px;
   height: 500px;
 }
+
+footer {
+  bottom: 0;
+  width: 100%;
+  text-align: center; 
+}
+
+#zomato {
+  text-align: center;
+  font-size: 25pt;
+}
+
+.form-group {
+  padding: 15pt;
+  font-style: bold;
+  font-size: large;
+}
+
+#main {
+  height:auto;
+  width: 100%;
+  font-size: 12pt;
+}
+
+#thumbnail {
+  margin-bottom: 3pt;
+  margin-bottom: 5pt;
+}
+
+#addressInput {
+  text-align: center;
+  font-family: "Lato", sans-serif;
+  
+}
+
+a{
+  color: orangered;
+}
+
 
 /* Turn off parallax scrolling for tablets and phones */
 @media only screen and (max-device-width: 1024px) {
