@@ -115,6 +115,68 @@ a{
   color: orangered;
 }
 
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+/* Modal Content */
+
+.modal-content {
+  background-color: #888;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #fefefe;
+  width: 60%;
+  color: white;
+}
+
+/* The Close Button */
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover, .close:focus {
+  color: #fefefe;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  background-color: #B22222;
+  color: white;
+}
+
+.modal-footer {
+  background-color: #B22222;
+  color: white;
+}
+
+
+
+
 
 /* Turn off parallax scrolling for tablets and phones */
 @media only screen and (max-device-width: 1024px) {

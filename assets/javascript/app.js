@@ -36,6 +36,32 @@ $("#submit").on("click", function () {
     var stadium = $("#stadiumVal").val();
     var bingQ = "http://api.parkwhiz.com/" + stadium + "/?page=2&no_event_301=1&key=f02ac3a6bef919dd3a80a73e964af9e9d3d2991a";
 
+    if (stadium === "angel-stadium-of-anaheim-parking" || stadium === "guaranteed-rate-field-parking" || stadium === "kauffman-stadium-parking" || stadium === "tropicana-field-parking" || stadium === "citizens-bank-park-parking" || stadium === "miller-park-parking" || stadium === "suntrust-field-parking") {
+        // Get the modal
+        var modal = document.getElementById('myModal');
+        modal.style.display = "block";
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+    
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+
+    
+} else {
+
+
+
     $.ajax({
         url: bingQ,
         method: "GET",
@@ -58,7 +84,7 @@ $("#submit").on("click", function () {
         console.log(stadiumLat)
         $("#suggestions").empty();
         foodInfo(stadiumLat, stadiumLng);
-         map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
+        map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
             center: new Microsoft.Maps.Location(response.lat, response.lng), zoom: 10
         });
 
@@ -116,7 +142,7 @@ $("#submit").on("click", function () {
             type: "text",
             placeholder: "Address",
             name: "address",
-            id: "addressInput", 
+            id: "addressInput",
             class: "text-muted"
 
         })
@@ -175,7 +201,7 @@ $("#submit").on("click", function () {
         //console.log("" + stadiumFood);
         return
     };
-
+    }; 
 
 });
 
@@ -218,4 +244,5 @@ $(document).on("click", ".submit-address", function (e) {
     };
     GetMap();
 
-}); 
+});
+

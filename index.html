@@ -78,8 +78,30 @@
         <button type="search" id="submit" class="btn btn-primary my-2 mx-2">Submit</button>
     </div>
 
+<!-- The Modal -->
+<div id="myModal" class="modal">
 
-    <div class="container"style="display:none" id="maps">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Foul Ball! <i class="fas fa-baseball-ball"></i>
+            </h3>
+            <span class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+            <p>Oops! We're Sorry! This is one of the few baseball stadiums that we do not have any parking listings
+                nearby for! </p>
+        </div>
+        <div class="modal-footer">
+            <h3>Foul Ball! <i class="fas fa-baseball-ball"></i>
+            </h3>
+        </div>
+    </div>
+
+</div>
+
+
+    <div class="container" style="display:none" id="maps">
         <div class="row">
             <div class="col-sm-6">
                 <div id='directionsItinerary'></div>
@@ -126,26 +148,27 @@
     <div class="bgimg-2"> </div>
 
     <div style="position:relative;">
-        <div id="foodOptions" style="display: none;color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px; height:auto">
+        <div id="foodOptions"
+            style="display: none;color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px; height:auto">
 
-                <p id="zomato">Plan your day with nearby restaurant suggestions from Zomato. <i
-                        class="fas fa-hotdog"></i></p>
-                <table class="table" id="suggestions">
-                    <thead>
+            <p id="zomato">Plan your day with nearby restaurant suggestions from Zomato. <i class="fas fa-hotdog"></i>
+            </p>
+            <table class="table" id="suggestions">
+                <thead>
 
-                        <tr>
-                            <th><img id="thumbnail"></th>
-                            <th>Restaurant Name</th>
-                            <th>Address</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
+                    <tr>
+                        <th><img id="thumbnail"></th>
+                        <th>Restaurant Name</th>
+                        <th>Address</th>
+                    </tr>
+                </thead>
+            </table>
         </div>
-        <form>
-            <div class="form-group"></div>
-        </form>
-        <!-- <h5>Input Team Stadium</h5> -->
+    </div>
+    <form>
+        <div class="form-group"></div>
+    </form>
+    <!-- <h5>Input Team Stadium</h5> -->
     </div>
     <div class="bgimg-3"><span class="enjoy"> Enjoy the game <i class="fas fa-baseball-ball"></i></span></div>
     <footer>Team I-ACE | Copyright 2019</footer>
