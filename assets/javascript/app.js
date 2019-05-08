@@ -35,7 +35,7 @@ $("#submit").on("click", function () {
     $("#maps").show();
 
     var stadium = $("#stadiumVal").val();
-    var bingQ = "http://api.parkwhiz.com/" + stadium + "/?page=2&no_event_301=1&key=f02ac3a6bef919dd3a80a73e964af9e9d3d2991a";
+    var bingQ = "https://api.parkwhiz.com/" + stadium + "/?page=2&no_event_301=1&key=f02ac3a6bef919dd3a80a73e964af9e9d3d2991a";
 
     if (stadium === "angel-stadium-of-anaheim-parking" || stadium === "guaranteed-rate-field-parking" || stadium === "kauffman-stadium-parking" || stadium === "tropicana-field-parking" || stadium === "citizens-bank-park-parking" || stadium === "miller-park-parking" || stadium === "suntrust-field-parking") {
         // Get the modal
