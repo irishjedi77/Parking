@@ -1,13 +1,4 @@
-$(document).ready(function () {
 
-    //stadiums array
-
-    var stadiums = ["Chase Field", "SunTrust Park", "Oriole Park at Camden Yards", "Oriole Park", "Camden Yards", "Fenway Park", "Wrigley Field", "Guaranteed Rate Field", "Great American Ball Park", "Progressive Field", "Coors Field", "Comerica Park", "Minute Maid Park", "Kauffman Stadium", "Angel Stadium", "Angel Stadium of Anaheim", "Dodger Stadium", "Marlins Park", "Miller Park", "Target Field", "Citi Field", "Yankee Stadium", "Oakland-Alameda County Stadium", "Citizens Bank Park", "PNC Park", "Petco Park", "AT&T Park", "ATT Park", "Safeco Park", "T-Mobile Park", "Busch Stadium", "Tropicana Field", "Globe Life Park", "Globe Life Park in Arlington", "Rogers Centre", "Nationals Park"];
-
-
-
-
-});
 
 //variables 
 var address;
@@ -20,7 +11,7 @@ var latitude;
 var longitude;
 var stadiumLat;
 var stadiumLng;
-var count = 0; 
+var count = 0;
 
 $(".table").hide()
 
@@ -35,32 +26,7 @@ $("#submit").on("click", function () {
     $("#maps").show();
 
     var stadium = $("#stadiumVal").val();
-    var bingQ = "http://api.parkwhiz.com/" + stadium + "/?page=2&no_event_301=1&key=f02ac3a6bef919dd3a80a73e964af9e9d3d2991a";
-
-    if (stadium === "angel-stadium-of-anaheim-parking" || stadium === "guaranteed-rate-field-parking" || stadium === "kauffman-stadium-parking" || stadium === "tropicana-field-parking" || stadium === "citizens-bank-park-parking" || stadium === "miller-park-parking" || stadium === "suntrust-field-parking") {
-        // Get the modal
-        var modal = document.getElementById('myModal');
-        modal.style.display = "block";
-
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
-
-    
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function () {
-            modal.style.display = "none";
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function (event) {
-            if (event.target === modal) {
-                modal.style.display = "none";
-            }
-        }
-
-    
-} else {
-
+    var bingQ = "https://api.parkwhiz.com/" + stadium + "/?page=2&no_event_301=1&key=f02ac3a6bef919dd3a80a73e964af9e9d3d2991a";
 
 
     $.ajax({
@@ -78,62 +44,91 @@ $("#submit").on("click", function () {
         }
 
     }).then(function (response) {
-        //console.log(response.parking_listings[0].address);
-        stadiumLat = response.lat;
-        stadiumLng = response.lng;
-        console.log(stadiumLng)
-        console.log(stadiumLat)
-        $("#suggestions").empty();
-        foodInfo(stadiumLat, stadiumLng);
-        map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
-            center: new Microsoft.Maps.Location(response.lat, response.lng), zoom: 10
-        });
 
-        var stadiumMain = new Microsoft.Maps.Location(response.lat, response.lng);
-        var pushpinMain = new Microsoft.Maps.Pushpin(stadiumMain, { color: 'red' });
-        map.entities.push(pushpinMain);
-        //console.log("exit loadMapScenario");
+        if (!response.parking_listings) {
 
-        for (var i = 0; i < 10; i++) {
+            // Get the modal
+            var modal = document.getElementById('myModal');
+            modal.style.display = "block";
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
 
 
-            var lat = response.parking_listings[i].lat;
-            var long = response.parking_listings[i].lng;
-            var name = response.parking_listings[i].location_name;
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
 
-            var price = response.parking_listings[i].price_formatted;
-            var address = response.parking_listings[i].address;
-            var city = response.parking_listings[i].city;
-            var state = response.parking_listings[i].state;
-
-
-            var garage = new Microsoft.Maps.Location(lat, long);
-            var pushpin = new Microsoft.Maps.Pushpin(garage, { text: (i+1).toString(), subTitle: name });
-            map.entities.push(pushpin);
-
-            // Display the parking info
-
-            var newRow = $("<tr>").append(
-                $("<td>").text(i + 1),
-                $("<td>").text(name),
-                $("<td>").text(price),
-                $("<td>").text(address),
-                $("<td>").text(city),
-                $("<td>").text(state),
-                $("<td>").html(`<button type="button" class="submit-address btn btn-secondary" data-lat="${lat}" data-long="${long}">Get Directions</buttton>`)
-            );
-
-            // Append the new row to the table
-            $(".table").show();
-            $("#parking-info-table tbody").append(newRow);
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function (event) {
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            }
+            $(".home-address").empty();
+            $("#directionsItinerary").empty();
+            $("#parking-info-table tbody").empty();
 
 
+        } else {
+            //console.log(response.parking_listings[0].address);
+            stadiumLat = response.lat;
+            stadiumLng = response.lng;
+            console.log(stadiumLng)
+            console.log(stadiumLat)
+            $("#suggestions").empty();
+            foodInfo(stadiumLat, stadiumLng);
+            map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
+                center: new Microsoft.Maps.Location(response.lat, response.lng), zoom: 10
+            });
+
+            var stadiumMain = new Microsoft.Maps.Location(response.lat, response.lng);
+            var pushpinMain = new Microsoft.Maps.Pushpin(stadiumMain, { color: 'red' });
+            map.entities.push(pushpinMain);
+            //console.log("exit loadMapScenario");
+
+            for (var i = 0; i < 10; i++) {
+
+
+                var lat = response.parking_listings[i].lat;
+                var long = response.parking_listings[i].lng;
+                var name = response.parking_listings[i].location_name;
+
+                var price = response.parking_listings[i].price_formatted;
+                var address = response.parking_listings[i].address;
+                var city = response.parking_listings[i].city;
+                var state = response.parking_listings[i].state;
+
+
+                var garage = new Microsoft.Maps.Location(lat, long);
+                var pushpin = new Microsoft.Maps.Pushpin(garage, { text: (i + 1).toString(), subTitle: name });
+                map.entities.push(pushpin);
+
+                // Display the parking info
+
+                var newRow = $("<tr>").append(
+                    $("<td>").text(i + 1),
+                    $("<td>").text(name),
+                    $("<td>").text(price),
+                    $("<td>").text(address),
+                    $("<td>").text(city),
+                    $("<td>").text(state),
+                    $("<td>").html(`<button type="button" class="submit-address btn btn-secondary" data-lat="${lat}" data-long="${long}">Get Directions</buttton>`)
+                );
+
+                // Append the new row to the table
+                $(".table").show();
+                $("#parking-info-table tbody").append(newRow);
 
 
 
 
+
+
+            };
+            /* console.log(response); */
         };
-        /* console.log(response); */
     });
 
     //display parking input
@@ -202,7 +197,7 @@ $("#submit").on("click", function () {
         //console.log("" + stadiumFood);
         return
     };
-    }; 
+
 
 });
 
@@ -211,7 +206,7 @@ $("#submit").on("click", function () {
 //direction functionality 
 $(document).on("click", ".submit-address", function (e) {
     e.preventDefault();
-    
+
 
     var data = $(this).data();
     console.log(data.long, data.lat);
@@ -220,7 +215,7 @@ $(document).on("click", ".submit-address", function (e) {
 
     console.log(homeAddress);
 
-   
+
 
     function GetMap() {
 
@@ -228,16 +223,16 @@ $(document).on("click", ".submit-address", function (e) {
         //Load the directions module.
         Microsoft.Maps.loadModule('Microsoft.Maps.Directions', function () {
 
-            
-            
+
+
             //Create an instance of the directions manager.
             directionsManager = new Microsoft.Maps.Directions.DirectionsManager(map);
 
 
             if (count = 1) {
 
-                map.layers.clear(); 
-            }; 
+                map.layers.clear();
+            };
 
             //Create waypoints to route between.
             var startingWaypoint = new Microsoft.Maps.Directions.Waypoint({ address: homeAddress });
@@ -252,7 +247,7 @@ $(document).on("click", ".submit-address", function (e) {
             //Calculate directions.
             directionsManager.calculateDirections();
 
-            count=1; 
+            count = 1;
 
 
         });
