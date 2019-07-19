@@ -29,8 +29,8 @@ Several MLB parks currently rely only on their own parking structures or lots an
 
 ---
 <strong><h3>APIs |</h3></strong>
-  * ParkWhiz [ https://www.parkwhiz.com/apikey=572094d12777806d7c3175bd54245f00ba20ba82 ]
-  * Zomato [ https://www.zomato.com/d23536464f4c1f106274e3197e9d49f7 ]
+  * ParkWhiz [ https://www.parkwhiz.com ]
+  * Zomato [ https://www.zomato.com]
   * Bing Maps [ https://www.microsoft.com/en-us/maps/documentation ]
   
 ---
